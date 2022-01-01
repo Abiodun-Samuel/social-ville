@@ -19,7 +19,7 @@ const Header = () => {
             <Link className="text-primary nav-link" to="/">
               <b>Posts</b>
             </Link>
-            <Link to="create-memory" className="text-primary nav-link">
+            <Link to="/create-a-post" className="text-primary nav-link">
               <b> Create Post</b>
             </Link>
           </Nav>

@@ -70,12 +70,19 @@ const Post = ({ post, currentId, setCurrentId }) => {
           alt={post.title}
         />
         <div className="card-body">
-          <h5 className="text-primary">{post.title}</h5>
+          <h5 className="text-primary">
+            {/* {post.title.substring(0, 40) + " ..."} */}
+            {post.title.length > 40
+              ? post.title.substring(0, 40) + " ..."
+              : post.title}
+          </h5>
           <p className="card-text">
             {post.message.substring(0, 60) + " ..."}
             <Link to={"/" + post._id}> Read More</Link>
           </p>
-          <p className="my-1">{post.tags.map((tag) => `#${tag}`)}</p>
+          <p className="my-1" style={{ color: "#757575" }}>
+            {post.tags.map((tag) => ` #${tag} `)}
+          </p>
           <div
             style={{
               display: "flex",

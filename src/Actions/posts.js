@@ -1,6 +1,7 @@
 import * as api from "../Api";
 import {
   FETCH_ALL,
+  DROP_ALL,
   DELETE,
   CREATE,
   LIKE,
@@ -22,6 +23,15 @@ export const getPost = (id) => async (dispatch) => {
   try {
     const { data } = await api.fetchPost(id);
     dispatch({ type: FETCH_ONE, payload: data });
+  } catch (error) {
+    console.log(error.messsage);
+  }
+};
+
+export const dropPost = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchPost(id);
+    dispatch({ type: DROP_ALL, payload: data });
   } catch (error) {
     console.log(error.messsage);
   }

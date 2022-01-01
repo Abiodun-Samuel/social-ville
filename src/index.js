@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
@@ -20,7 +19,7 @@ ReactDOM.render(
         <Header />
         <Routes>
           <Route path="/" element={<Posts />} />
-          <Route path="/create-memory" element={<FormCreate />} />
+          <Route path="/create-a-post" element={<FormCreate />} />
           <Route path="/:id" element={<PostDetails />} />
         </Routes>
       </BrowserRouter>

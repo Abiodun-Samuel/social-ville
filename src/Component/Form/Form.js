@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { createPost } from "../../Actions/posts";
 
 const FormCreate = () => {
+  document.title = "Create a Post";
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -81,7 +82,7 @@ const FormCreate = () => {
                 name="tags"
                 value={postData.tags}
                 onChange={(e) =>
-                  setPostData({ ...postData, tags: e.target.value })
+                  setPostData({ ...postData, tags: e.target.value.split(",") })
                 }
               />
             </Form.Group>

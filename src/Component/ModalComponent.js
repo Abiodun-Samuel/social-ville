@@ -9,12 +9,19 @@ import Button from "react-bootstrap/Button";
 import { updatePost } from "../Actions/posts";
 
 function ModalComponent(props) {
-  const handleClose = () => props.setShow(false);
+  const handleClose = () => {
+    props.setShow(false);
+    document.title = "Posts";
+  };
+
   const post = useSelector((state) =>
     props.currentId ? state.posts.find((p) => p._id === props.currentId) : null
   );
   useEffect(() => {
-    if (post) setPostData(post);
+    if (post) {
+      setPostData(post);
+      document.title = "Edit Post";
+    }
   }, [post]);
 
   const [postData, setPostData] = useState({
@@ -94,7 +101,7 @@ function ModalComponent(props) {
               name="tags"
               value={postData.tags}
               onChange={(e) =>
-                setPostData({ ...postData, tags: e.target.value })
+                setPostData({ ...postData, tags: e.target.value.split(",") })
               }
             />
           </Form.Group>
